@@ -6,13 +6,26 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:52:28 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/22 17:44:06 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/22 19:24:05 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_strlen(char *str)
+{
+	int k;
+
+	k = 0;
+	while (*str != '\0')
+	{
+		k++;
+		str++;
+	}
+	return (k);
+}
+
+char			*ft_strdup(const char *s1)
 {
 	char	*p;
 	int		i;
@@ -83,7 +96,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	return (0);
 }
 
-char	*ft_strchr(const char *s, int c)
+char			*ft_strchr(const char *s, int c)
 {
 	char	a;
 	int		i;
