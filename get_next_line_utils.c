@@ -6,11 +6,40 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:52:28 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/22 19:24:05 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/23 17:56:46 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_substr(char *s, int start, int len)
+{
+	char				*puntero;
+	int					i;
+
+	if (s == NULL)
+		return (NULL);
+	if (!(puntero = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		puntero[i] = 0;
+		i++;
+	}
+	if (i > start)
+	{
+		i = 0;
+		while (len-- > 0)
+		{
+			puntero[i] = s[start];
+			i++;
+			start++;
+		}
+	}
+	puntero[i] = '\0';
+	return (puntero);
+}
 
 int	ft_strlen(char *str)
 {
@@ -30,6 +59,8 @@ char			*ft_strdup(const char *s1)
 	char	*p;
 	int		i;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 		i++;

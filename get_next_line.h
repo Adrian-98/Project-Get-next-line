@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:51:40 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/22 19:12:56 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/23 17:56:57 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int				get_next_line(int fd, char **line);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(const char *s1);
 char			*ft_strchr(const char *s, int c);
+char			*ft_substr(char *s, int start, int len);
 
 #endif
