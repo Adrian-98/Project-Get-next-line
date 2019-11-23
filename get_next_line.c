@@ -12,36 +12,42 @@
 
 #include "get_next_line.h"
 
-static	int	ft_return_values(int i)
+static	int	ft_return_values(int i, int fd, char **memory, char **line)
 {
-	if (i == 0)
-		return (0);
-	else
-		return (1);
-}
-
-static	int	ft_separate_line(char **line, char **memory, int i)
-{
-	char	*aux;
-	int		j;
-
-	j = 0;
 	if (i < 0)
 		return (-1);
-	while (*memory == '\n' || *memory != '\0')
+	else if (i == 0 && s[fd] == NULL)
+		return (0);
+	else 
+		return (ft_separate_line(line, &s[fd]));
+}
+
+static	int	ft_separate_line(char **line, char **memory)
+{
+	char	*aux;
+	int	j;
+
+	j = 0;
+	while (*memory[j] != '\n' || *memory[j] != '\0')
+		j++;
+	if (*memory[j] == '\n')
 	{
-		*line = *memory;
-		line++;
-		memory++;
+		*line = ft_strsub(*memory, 0, j);
+		aux = ft_strdup(&(*memory)[j + 1];
+		free(*memory);
+		*memory = aux;
+		if (*memory[0] == '\0')
+		{
+			free(*memory);
+			*memory = NULL;
+		}
 	}
-	while (memory != '\0')
+	else 
 	{
-		*aux++ = *memory++;
-		
-	}
-	free(memory);
-	*memory = aux;
-	return (ft_return_values(i));
+		*line = ft_strdup(*memory);
+		free(*memory);
+		*memory = NULL;
+	}	
 }
 
 int			get_next_line(int fd, char **line)
@@ -69,5 +75,5 @@ int			get_next_line(int fd, char **line)
 		if (strchr(memory[fd], '\n'))
 			break ;
 	}
-	return (ft_separate_line(line, &memory[fd], i));
+	return (ft_return_values(i , fd, memory, line));
 }
