@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:43:04 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/23 19:31:24 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/23 20:29:51 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	int	ft_separate_line(char **line, char **memory, int fd)
 			memory[fd] = NULL;
 		}
 	}
-	else 
+	else
 	{
 		*line = ft_strdup(memory[fd]);
 		free(memory[fd]);
@@ -48,7 +48,7 @@ static	int	ft_return_values(int i, int fd, char **memory, char **line)
 		return (-1);
 	else if (i == 0 && memory[fd] == NULL)
 	{
-		*line = ft_strdup(memory[fd]);
+		*line = ft_strdup("");
 		memory[fd] = NULL;
 		return (0);
 	}
@@ -60,7 +60,6 @@ int			get_next_line(int fd, char **line)
 {
 	static char *memory[4096];
 	int			i;
-	int			BUFFER_SIZE = 4;
 	char		buffer[BUFFER_SIZE + 1];
 	char		*aux;
 
@@ -84,24 +83,4 @@ int			get_next_line(int fd, char **line)
 			break ;
 	}
 	return (ft_return_values(i , fd, memory, line));
-}
-
-int	main()
-{
-	int		fd;
-	char	*line;
-	fd = open("prueba.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error");
-		return (0);
-	}
-	line = (ft_strdup(""));
-	while(get_next_line(fd, &line))
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	printf("%s\n", line);
-        return 0;
 }
