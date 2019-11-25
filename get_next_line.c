@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:43:04 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/23 21:09:39 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/25 17:09:08 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			get_next_line(int fd, char **line)
 	char		buffer[BUFFER_SIZE + 1];
 	char		*aux;
 
-	if (!fd || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 	{
 		memory[fd] = NULL;
 		return (-1);
@@ -78,7 +78,7 @@ int			get_next_line(int fd, char **line)
 			free(memory[fd]);
 			memory[fd] = aux;
 		}
-		if (strchr(memory[fd], '\n'))
+		if (ft_strchr(memory[fd], '\n'))
 			break ;
 	}
 	return (ft_return_values(i, fd, memory, line));

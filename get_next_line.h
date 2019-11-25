@@ -6,7 +6,7 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 16:51:40 by amunoz-p          #+#    #+#             */
-/*   Updated: 2019/11/23 17:56:57 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2019/11/25 17:10:50 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(const char *s1);
 char			*ft_strchr(const char *s, int c);
 char			*ft_substr(char *s, int start, int len);
+int				ft_strlen(const char *str);
 
 #endif
